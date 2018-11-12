@@ -1,0 +1,34 @@
+---
+title: "Upshot function"
+author: "Oliver Cordeiro"
+date: "11/12/2018"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(dplyr)
+library(fs)
+
+```
+
+```{r}
+buildfile <- function(x){
+  paste("election-poll-", x, ".csv", sep = "")}
+
+
+
+
+buildtibble <- function(district, wave){
+  x <- paste("https://raw.githubusercontent.com/TheUpshot/2018-live-poll-results/master/data/elections-poll-", district, "-", wave, ".csv", sep = "")
+
+ y <- read_csv(x) 
+ 
+ y
+  }
+
+buildtibble("ca49", "3")
+```
+
